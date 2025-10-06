@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Easy Switch</title>
+  <meta name="description" content="Easy Switch – Der innovative Bilderrahmen, der das Wechseln von Bildern einfach macht." />
+  <style>
+    :root {
+      --bg: #1b1719;
+      --text: #ffffff;
+      --muted: #cccccc;
+      --accent: #ffffff;
+      --card: #2a2527;
+      --radius: 12px;
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #141214;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header img {
+      height: 50px;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px 60px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .contact {
+      background: #141214;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      margin-bottom: 16px;
+    }
+
+    .contact p {
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      font-size: 14px;
+      background: #100e10;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#home">
+      <img src="images/logo.png" alt="Easy Switch Logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#home">Start</a></li>
+        <li><a href="#features">Vorteile</a></li>
+        <li><a href="#gallery">Galerie</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Easy Switch</h1>
+    <p>Der elegante Bilderrahmen, der mit einem Handgriff ein neues Bild zeigt.<br>
+      Bewahre mehrere Fotos auf und wechsle sie jederzeit – schnell, sauber und stilvoll.</p>
+  </section>
+
+  <section class="features" id="features">
+    <div class="card">
+      <h3>✔ Innovatives Design</h3>
+      <p>Ein einzigartiger Mechanismus erlaubt dir, Bilder im Handumdrehen zu wechseln.</p>
+    </div>
+    <div class="card">
+      <h3>✔ Mehrere Bilder</h3>
+      <p>Platz für mehrere Fotos gleichzeitig – kein ständiges Öffnen oder Umrahmen nötig.</p>
+    </div>
+    <div class="card">
+      <h3>✔ Hochwertige Materialien</h3>
+      <p>Gefertigt aus langlebigen, edlen Komponenten für ein modernes Wohngefühl.</p>
+    </div>
+    <div class="card">
+      <h3>✔ Minimalistischer Look</h3>
+      <p>Ein Rahmen, der in jedes Zuhause passt – schlicht, elegant und funktional.</p>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <img src="blob:https://web.whatsapp.com/50779c0b-383c-4b6f-81c8-e9550ba5955c" alt="Easy Switch Beispiel 1">
+    <img src="https://picsum.photos/seed/frame2/600/400" alt="Easy Switch Beispiel 2">
+    <img src="https://picsum.photos/seed/frame3/600/400" alt="Easy Switch Beispiel 3">
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Kontakt</h2>
+    <p>Easy Switch<br>
+      Wexstraße 19/23<br>
+      1200 Wien, Österreich</p>
+    <p style="margin-top: 10px;">Schreib uns: <a href="mailto:info@easy-switch.at" style="color:white;">info@easy-switch.at</a></p>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Easy Switch — Alle Rechte vorbehalten.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
