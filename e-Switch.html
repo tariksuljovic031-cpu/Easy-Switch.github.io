@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Switch</title>
+  <style>
+    :root {
+      --bg: #231f20;
+      --text: #ffffff;
+      --muted: #b3b3b3;
+      --accent: #ffffff;
+      --radius: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      transition: background-color 0.6s ease, color 0.6s ease;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      position: sticky;
+      top: 0;
+      background-color: rgba(35, 31, 32, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      animation: fadeIn 1s ease forwards;
+    }
+
+    header img {
+      height: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent);
+      border-radius: 1px;
+      transition: width 0.3s ease;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 120px 20px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .hero.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 20px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 100px auto;
+      padding: 0 20px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .features.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card {
+      background-color: #2f2b2d;
+      border-radius: var(--radius);
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .contact {
+      background-color: #1a1718;
+      padding: 80px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+
+    .contact.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .contact h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .contact p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
+      font-size: 14px;
+      background-color: #161314;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .fade-transition {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .fade-transition.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="ESwitch.jpg" alt="Easy Switch Logo">
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Start</a></li>
+        <li><a href="#features">Vorteile</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero fade-transition" id="home">
+    <h1>Easy-Switch</h1>
+    <p>Bilder wechseln leicht gemacht – Der innovative Bilderrahmen, der es dir ermöglicht, mehrere Fotos zu speichern und mit einem Handgriff zu wechseln.</p>
+  </section>
+
+  <section class="features fade-transition" id="features">
+    <div class="card">
+      <h3>✔ Innovatives Konzept</h3>
+      <p>Bewahre mehrere Bilder gleichzeitig im Rahmen auf und wechsle sie in Sekunden – ganz ohne Aufwand.</p>
+    </div>
+    <div class="card">
+      <h3>✔ Stilvolles Design</h3>
+      <p>Ein minimalistischer Rahmen, der in jedes Zuhause passt – inspiriert vom modernen Apple-Look.</p>
+    </div>
+    <div class="card">
+      <h3>✔ Hochwertige Materialien</h3>
+      <p>Gefertigt aus langlebigen Materialien für ein elegantes, modernes Erscheinungsbild.</p>
+    </div>
+  </section>
+
+  <section class="contact fade-transition" id="contact">
+    <h2>Kontakt</h2>
+    <p>Easy-Switch<br>
+      Wexstraße 19/23<br>
+      1200 Wien, Österreich</p>
+    <p style="margin-top: 10px;">Schreib uns: <a href="mailto:eswitch86@gmail.com" style="color:white;">eswitch86@gmail.com</a></p>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Easy-Switch — Alle Rechte vorbehalten.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const sections = document.querySelectorAll('.fade-transition');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    const links = document.querySelectorAll('nav a');
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        document.querySelectorAll('.fade-transition').forEach(sec => sec.classList.remove('visible'));
+        setTimeout(() => {
+          const target = document.querySelector(link.getAttribute('href'));
+          target.scrollIntoView({ behavior: 'smooth' });
+          setTimeout(() => target.classList.add('visible'), 600);
+        }, 100);
+      });
+    });
+  </script>
+</body>
+</html>
